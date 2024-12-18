@@ -5,18 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PingniteUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="550"
+        Title="MainWindow" Height="480" Width="650"
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True" >
 
-    <Border Background="#202020" CornerRadius="15">
+    <Window.Resources>
+
+        <SolidColorBrush x:Key="TransparentBorder" Color="#1b1d2b"/>
+
+        <Style x:Key="TabItemS" TargetType="TabItem">
+
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="FontWeight" Value="500" />
+            <Setter Property="Width" Value="70" />
+            <Setter Property="Template">
+
+                <Setter.Value>
+
+
+                    <ControlTemplate TargetType="TabItem">
+
+                        <Grid SnapsToDevicePixels="True">
+
+                            <Border CornerRadius="3" Background="#1b1d2b" BorderThickness="0" BorderBrush="Transparent" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True" RecognizesAccessKey="True" ContentSource="Header" Focusable="False">
+
+
+
+                            </ContentPresenter>
+
+                        </Grid>
+
+                    </ControlTemplate>
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
+
+    </Window.Resources>
+
+
+    <Border Background="#202540" CornerRadius="10" BorderThickness="1,1,1,1">
 
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="142*"/>
+                <RowDefinition Height="97*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="21*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
 
-            <Image Source="/Assets/Images/Logo.png" Margin="10,6,454,438"/>
-            <Button Cursor="Hand" x:Name="Github" Margin="101,10,417,438" Background="Transparent" Click="Button_Click" Panel.ZIndex="1" Opacity="0.01" BorderThickness="0,0,0,0">
+            <Border Width="2" Height="40" Margin="122,5,420,239" Background="White" Panel.ZIndex="2" Opacity="0.4"></Border>
+            <Image HorizontalAlignment="Left" Source="/Assets/Images/Logo.png" Margin="10,8,0,242" Panel.ZIndex="1" RenderTransformOrigin="0.396,0.593" OpacityMask="#FFE60000"/>
+            <Button Cursor="Hand" x:Name="Github" Margin="140,8,370,242" Background="Transparent" Click="Button_Click" Panel.ZIndex="2" Opacity="0.01" BorderThickness="0,0,0,0">
                 <Button.Foreground>
                     <SolidColorBrush Color="Black" Opacity="0"/>
                 </Button.Foreground>
@@ -25,32 +75,238 @@
                 </Button.BorderBrush>
             </Button>
 
-            <Image Source="/Assets/Images/git.png" Height="32" Width="32" Margin="101,6,417,442" IsEnabled="False"></Image>
 
-            <Button Cursor="Hand" Click="Button_Click_1" Width="30" Height="30" RenderTransformOrigin="0.333,0.8" Margin="510,9,10,441" Opacity="0.01" Panel.ZIndex="1">
+
+            <Image Source="/Assets/Images/git.png" Height="32" Width="32" Margin="140,8,372,244" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312"></Image>
+
+            <Button Cursor="Hand" Click="Button_Click_1" Width="30" Height="30" RenderTransformOrigin="0.333,0.8" Margin="56,9,18,245" Opacity="0.01" Panel.ZIndex="2" Grid.Column="1">
                 <Button.Background>
                     <SolidColorBrush Color="#FF202020" Opacity="0.01"/>
                 </Button.Background>
 
             </Button>
-            <Image Source="/Assets/Images/exit.png" Width="30" Height="30" Margin="510,10,10,440"></Image>
-            <Border Width="200" Height="120" CornerRadius="10" Margin="15,48,335,312">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFF003A"/>
-                        <GradientStop Color="#FFFF0075" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                
-                <Image Source="/Assets/Images/banner1.png"></Image>
-                
-                
-            </Border>
+            <Image Source="/Assets/Images/exit.png" Width="30" Height="30" Margin="56,10,18,244" Panel.ZIndex="1" Grid.Column="1"></Image>
 
-            <Border Background="#33FFFFFF" Width="500" Height="1" Margin="15,180,35,288"></Border>
-            
-            <Image Source="/Assets/Images/Servers.png" Width="100" Height="45" Margin="10,192,440,244"></Image>
-            <Label x:Name="Version" Foreground="Gray" Content="v0.1.0" Margin="0,449,507,0" RenderTransformOrigin="0.151,1.806"/>
+
+            <TabControl Background="Transparent" Width="650" Height="430" Grid.ColumnSpan="2" Margin="1,54,-3,-6" Grid.RowSpan="2">
+
+
+
+                <TabItem Header="Home" Style="{DynamicResource TabItemS}" Margin="28,-1,-28,1">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="71*"/>
+                            <ColumnDefinition Width="251*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border
+
+
+                        Opacity="0.5" x:Name="Servers" Margin="27,7,26,365" Height="30" CornerRadius="2" Background="#FF151515" Grid.ColumnSpan="2"/>
+
+
+
+                        <TextBlock Text="HOME" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="40,11,0,0" RenderTransformOrigin="0.728,0.457"/>
+
+                        <Border CornerRadius="4" Margin="27,48,414,0" Height="125" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF6EACFF"/>
+                                    <GradientStop Color="#FF4B58C3" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Image Source="/Assets/Images/banner1.png" Margin="11,0,-11,0"/>
+
+
+                        </Border>
+
+
+                        <Image VerticalAlignment="Top" Height="190" Source="https://raw.githubusercontent.com/vrkx/GlowStore/refs/heads/main/images/Banner.png" Margin="-45,123,149,0" Grid.ColumnSpan="2"/>
+                        <Border CornerRadius="4" Margin="106,48,26,0" Height="125" VerticalAlignment="Top" Grid.Column="1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF6EACFF"/>
+                                    <GradientStop Color="#FF4B58C3" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.Background>
+
+                            <Image Source="https://raw.githubusercontent.com/vrkx/GlowStore/refs/heads/main/images/Banner2.png"/>
+
+
+                        </Border>
+
+
+                        <Border Name="HOME" CornerRadius="2" Height="30" Margin="27,7,26,365" Background="#FF151515" Opacity="0.5" Grid.ColumnSpan="2" />
+
+
+                    </Grid>
+
+                </TabItem>
+
+
+                <TabItem Header="Servers" Style="{DynamicResource TabItemS}" Margin="0,-1,-35,1" HorizontalAlignment="Right" >
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="146*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Name="SERVERS" CornerRadius="2" Height="30" Margin="27,7,26,365" Background="#FF151515" Opacity="0.5" Grid.ColumnSpan="2" />
+
+                        <TextBlock Text="SERVERS" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="39,11,0,0" Grid.ColumnSpan="2"></TextBlock>
+
+                        <Grid Margin="16,42,415,244" Grid.ColumnSpan="2">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="NA-EAST" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="86" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer" Content="Host : ping-nae.ds.on.epicgames" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,83,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+
+                        <Button Cursor="Hand" x:Name="Reload" Margin="515,7,33,365" Background="Transparent" Click="Reload_Click" Panel.ZIndex="2" Opacity="0.01" BorderThickness="0,0,0,0" Grid.Column="1">
+                            <Button.Foreground>
+                                <SolidColorBrush Color="Black" Opacity="0"/>
+                            </Button.Foreground>
+                            <Button.BorderBrush>
+                                <SolidColorBrush Color="#FF707070" Opacity="100"/>
+                            </Button.BorderBrush>
+                        </Button>
+                        <Image Source="/Assets/Images/reload.png" Margin="522,6,40,366" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312" Grid.Column="1"/>
+                        <Grid Margin="156,42,216,244" Grid.Column="1">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="NA-WEST" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="86" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP1" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer1" Content="Host : ping-naw.ds.on.epicgames" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,83,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS1" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS1" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+                        <Grid Margin="356,42,16,244" Grid.Column="1">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="NA-CENTRAL" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="119" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP2" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer2" Content="Host : ping-nac.ds.on.epicgames.com" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,83,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS2" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS2" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+                        <Grid Margin="16,158,415,125" Grid.ColumnSpan="2">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="BRAZIL" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="119" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP3" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer3" Content="Host : ping-br.ds.on.epicgames.com" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,68,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS3" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS3" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+                        <Grid Margin="156,158,215,125" Grid.Column="1">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="EUROPE" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="119" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP4" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer4" Content="Host : ping-eu.ds.on.epicgames.com" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,68,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS4" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS4" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+                        <Grid Margin="355,158,16,125" Grid.Column="1">
+
+
+
+                            <Border Height="110" CornerRadius="2" Margin="11,3,11,3"  >
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FFB3F756"/>
+                                        <GradientStop Color="#FF00FF33" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                            </Border>
+
+                            <Label HorizontalAlignment="Left" FontSize="15" VerticalAlignment="Top" Content="MIDDLE-EAST" Foreground="White"   FontFamily="Arial Black" Panel.ZIndex="2" FontWeight="Bold" Width="119" RenderTransformOrigin="0.519,0.667" Margin="10,0,0,0"/>
+                            <Label VerticalAlignment="Top" Height="25" FontSize="15" x:Name="NaIP5" Content="NaIP" Foreground="White"  Panel.ZIndex="3" FontFamily="Calibri" FontWeight="Bold" Margin="10,73,-10,0"/>
+
+                            <Label VerticalAlignment="Top" FontSize="8" x:Name="NaServer5" Content="Host : ping-me.ds.on.epicgames.com" Foreground="White"  Panel.ZIndex="2" FontFamily="Corbel" Margin="12,17,68,0"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaMS5" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,55,-10,0" Height="49"/>
+                            <Label VerticalAlignment="Top" FontSize="15" x:Name="NaSTATUS5" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="10,88,127,0"/>
+                        </Grid>
+
+
+
+
+                    </Grid>
+
+                </TabItem>
+
+            </TabControl>
+
+
+            <Border CornerRadius="5" Background="#1b1d2b" Margin="0,0,0,248"  Grid.ColumnSpan="2"/>
+
+            <Label x:Name="Version" Foreground="Gray" Content="v0.1.0" Margin="10,25,409,230" RenderTransformOrigin="0.151,1.806"/>
+            <Border CornerRadius="0" Background="#1b1d2b" Margin="0,28,0,235" Grid.ColumnSpan="2"/>
+
+
+
+
+
         </Grid>
 
     </Border>
