@@ -12,8 +12,10 @@
     <None Remove="Assets\Images\banner1.png" />
     <None Remove="Assets\Images\exit.png" />
     <None Remove="Assets\Images\git.png" />
+    <None Remove="Assets\Images\Home.png" />
     <None Remove="Assets\Images\reload.png" />
     <None Remove="Assets\Images\Servers.png" />
+    <None Remove="Assets\Images\Web.png" />
   </ItemGroup>
 
 
@@ -21,9 +23,11 @@
     <Resource Include="Assets\Images\banner1.png" />
     <Resource Include="Assets\Images\exit.png" />
     <Resource Include="Assets\Images\git.png" />
+    <Resource Include="Assets\Images\Home.png" />
     <Resource Include="Assets\Images\Logo.png" />
     <Resource Include="Assets\Images\reload.png" />
     <Resource Include="Assets\Images\Servers.png" />
+    <Resource Include="Assets\Images\Web.png" />
     <Resource Include="Fonts\BurbankS.ttf" />
   </ItemGroup>
 
