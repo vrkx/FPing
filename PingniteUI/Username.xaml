@@ -1,0 +1,70 @@
+﻿<Window x:Class="PingniteUI.Username"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PingniteUI"
+        mc:Ignorable="d"
+      
+
+            WindowStyle="None"
+            ResizeMode="NoResize"
+            Background="Transparent"
+            AllowsTransparency="True" 
+        Title="Username" Height="284" Width="454">
+
+    <Grid>
+
+        <Border  CornerRadius="10" BorderThickness="1,1,1,1">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D1E1F"/>
+                    <GradientStop Color="#FF202540" Offset="1"/>
+                    <GradientStop Color="#FF1D1E1F" Offset="0.337"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Label FontSize="20" FontFamily="Arial Black" Content="Welcome to FTracker !" VerticalAlignment="Top" Padding="10" HorizontalAlignment="Left" Foreground="White"></Label>
+
+
+
+        </Border>
+
+        <Border Background="#FF5365FF" Width="65" Height="20" CornerRadius="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,10,10"/>
+        <Label FontSize="10" Content="-> Continue" VerticalAlignment="Bottom" HorizontalAlignment="Right" Foreground="White" FontFamily="Arial" FontWeight="Bold" Margin="0,0,10,9"/>
+        <Label FontSize="10" FontFamily="Arial" Content="To start please enter your Epic Games Username" VerticalAlignment="Top" Padding="10" HorizontalAlignment="Left" Foreground="Gray" Margin="4,26,0,0" FontWeight="Bold" Width="255"/>
+        <Button Margin="379,254,10,10" Opacity="0.01" Click="Button_Click" Cursor="Hand"/>
+        <Grid Margin="4,58,0,79">
+
+            <Border CornerRadius="10" Margin="8,0,10,-10" Background="#FF101010"/>
+            <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="Hello!, my Username is..." FontFamily="Arial" Foreground="#FEFEFE" FontSize="15" Margin="17,1,0,0" FontWeight="Bold"/>
+            <TextBox Foreground="White" TextAlignment="Center" FontFamily="Arial Black" FontSize="14" Name="Usernamee" Margin="91,55,79,45" RenderTransformOrigin="0.508,0.107" FontWeight="Bold" Panel.ZIndex="2" Background="Transparent" BorderBrush="#00ABADB3"/>
+            <Border Background="#151515" Margin="91,55,79,45" CornerRadius="4"/>
+
+            <Image  Source="/Assets/Images/Jonesy.png" Margin="26,55,377,45" RenderTransformOrigin="0.725,0.492"/>
+
+        </Grid>
+
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="WARNING : FTracker is not associated with Epic Games Inc." FontFamily="Arial" Foreground="Gray" FontSize="8" Margin="12,262,0,0" FontWeight="Bold"/>
+        <Label VerticalAlignment="Top" HorizontalAlignment="Left" Content="We will use your Epic Games Username to track all your Fortnite stats" FontFamily="Arial" Foreground="Gray" FontSize="8" Margin="95,161,0,0" FontWeight="Bold"/>
+
+        <Border Name="Loading" CornerRadius="10" BorderThickness="1,1,1,1" Opacity="0" Visibility="Hidden">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D1E1F"/>
+                    <GradientStop Color="#FF202540" Offset="1"/>
+                    <GradientStop Color="#FF1D1E1F" Offset="0.337"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Label Name="Loadingsss" FontSize="20" FontFamily="Arial Black" Content="Loading..." VerticalAlignment="Top" Padding="10" HorizontalAlignment="Center" Foreground="White" Margin="0,113,0,0"></Label>
+
+
+
+        </Border>
+
+    </Grid>
+
+
+
+</Window>

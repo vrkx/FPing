@@ -41,3 +41,5 @@ C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\re
 C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\PingniteUI.pdb
 C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\PingniteUI.genruntimeconfig.cache
 C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\ref\PingniteUI.dll
+C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\Username.g.cs
+C:\Users\Juan\Documents\GitHub\PingniteUI\PingniteUI\obj\Debug\net8.0-windows\Username.baml

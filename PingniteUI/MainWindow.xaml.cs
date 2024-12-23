@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Reflection;
@@ -10,9 +11,12 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PingniteUI.Core;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PingniteUI
 {
@@ -21,13 +25,61 @@ namespace PingniteUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        // UI VALUES
+
+        // //////////////////////////////////////////////
+
+        // Value HOVERS
+        // Banners
+        private double _originalWidth;
+        private double _originalHeight;
+        private double _hoverScale = 1.01;
+        // Buttons
+        private double _doriginalWidth;
+        private double _doriginalHeight;
+        private double _dhoverScale = 1.1;
 
 
+        private const string FilePath = "FTracker/FTrackerTUserData.json"; 
 
         public MainWindow()
         {
             // Start app
             InitializeComponent();
+            _originalWidth = Banner.Width;
+            _originalHeight = Banner.Height;
+            _doriginalWidth = Dsc.Width;
+            _doriginalHeight = Dsc.Height;
+
+            if (!File.Exists(FilePath))
+            {
+               
+                Loaded += MainWindow_Loaded;
+                
+               
+            }
+            else
+            {
+                string UsernameLine = File.ReadLines(FilePath).Skip(1).Take(1).FirstOrDefault();
+                string[] line = File.ReadAllLines(FilePath);
+                foreach(string k1 in line)
+                {
+
+                    WelcomeName.Text = "Welcome " + UsernameLine +" !" ;
+
+
+                }
+            
+               
+                Console.WriteLine("Username done.");
+                
+            }
+
+
+
+
+
+
             // Ping servers and get information about them.
 
             // EAST
@@ -117,6 +169,143 @@ namespace PingniteUI
 
         // Github btn
 
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            OpenLogin();
+        }
+
+        private void OpenLogin()
+        {
+
+            Username Login = new Username();
+
+            
+            Login.Show();
+
+            this.Close();
+
+
+        }
+        private void myImage_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            DoubleAnimation widthAnimation = new DoubleAnimation
+            {
+                From = _originalWidth,
+                To = _originalWidth * _hoverScale,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            DoubleAnimation heightAnimation = new DoubleAnimation
+            {
+                From = _originalHeight,
+                To = _originalHeight * _hoverScale,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+
+            Banner.BeginAnimation(WidthProperty, widthAnimation);
+            Banner.BeginAnimation(HeightProperty, heightAnimation);
+
+        }
+
+        // Banner HoverOFF
+
+
+
+
+        private void dsc_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            DoubleAnimation widthAnimation = new DoubleAnimation
+            {
+                From = _doriginalWidth * _hoverScale,
+                To = _doriginalWidth,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            DoubleAnimation heightAnimation = new DoubleAnimation
+            {
+                From = _doriginalHeight * _hoverScale,
+                To = _doriginalHeight,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            // Apply animations
+            Dsc.BeginAnimation(WidthProperty, widthAnimation);
+            Dsc.BeginAnimation(HeightProperty, heightAnimation);
+        }
+
+
+
+
+        // Banner HoverON
+
+
+
+        private void dsc_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            DoubleAnimation widthAnimation = new DoubleAnimation
+            {
+                From = _doriginalWidth,
+                To = _doriginalWidth * _hoverScale,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            DoubleAnimation heightAnimation = new DoubleAnimation
+            {
+                From = _doriginalHeight,
+                To = _doriginalHeight * _hoverScale,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            
+            Dsc.BeginAnimation(WidthProperty, widthAnimation);
+            Dsc.BeginAnimation(HeightProperty, heightAnimation);
+
+        }
+
+        // Banner HoverOFF
+
+        
+        
+
+        private void myImage_MouseLeave(object sender, MouseEventArgs e)
+        {
+           
+            DoubleAnimation widthAnimation = new DoubleAnimation
+            {
+                From = _originalWidth * _hoverScale,
+                To = _originalWidth,
+                Duration = TimeSpan.FromMilliseconds(400), 
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            DoubleAnimation heightAnimation = new DoubleAnimation
+            {
+                From = _originalHeight * _hoverScale,
+                To = _originalHeight,
+                Duration = TimeSpan.FromMilliseconds(400),
+                EasingFunction = new CubicEase() { EasingMode = EasingMode.EaseInOut }
+            };
+
+            // Apply animations
+            Banner.BeginAnimation(WidthProperty, widthAnimation);
+            Banner.BeginAnimation(HeightProperty, heightAnimation);
+        }
+
+
+        
+        // Github Redirect
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
@@ -127,7 +316,7 @@ namespace PingniteUI
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            System.Windows.Application.Current.Shutdown();
         }
 
         // Refresh servers info

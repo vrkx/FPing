@@ -11,18 +11,24 @@
       "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juan\\AppData\\Local\\Temp\\.vsdbgsrc\\cf51f86156b71470faaa010e7833f88c34cb8003216bd1fe11832227fa184745\\Storyboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|c:\\users\\juan\\documents\\github\\pingniteui\\pingniteui\\username.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\username.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|c:\\users\\juan\\documents\\github\\pingniteui\\pingniteui\\pingniteui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\pingniteui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|c:\\users\\juan\\documents\\github\\pingniteui\\pingniteui\\username.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\username.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|c:\\users\\juan\\documents\\github\\pingniteui\\pingniteui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|c:\\users\\juan\\documents\\github\\pingniteui\\pingniteui\\pingniteui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3126CB36-5661-45DF-B110-C155539FFF82}|PingniteUI\\PingniteUI.csproj|solutionrelative:pingniteui\\pingniteui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,50 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Storyboard.cs",
-              "DocumentMoniker": "C:\\Users\\Juan\\AppData\\Local\\Temp\\.vsdbgsrc\\cf51f86156b71470faaa010e7833f88c34cb8003216bd1fe11832227fa184745\\Storyboard.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\cf51f86156b71470faaa010e7833f88c34cb8003216bd1fe11832227fa184745\\Storyboard.cs",
-              "ToolTip": "C:\\Users\\Juan\\AppData\\Local\\Temp\\.vsdbgsrc\\cf51f86156b71470faaa010e7833f88c34cb8003216bd1fe11832227fa184745\\Storyboard.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\cf51f86156b71470faaa010e7833f88c34cb8003216bd1fe11832227fa184745\\Storyboard.cs [Read Only]",
-              "ViewState": "AgIAANwBAAAAAAAAAAAAwFkCAAADAAAAAQAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-19T00:14:16.658Z",
-              "EditorCaption": " [Read Only]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Microsoft.WinFX.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.WinFX.targets",
-              "ViewState": "AgIAANkBAAAAAAAAAAAmwOYBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-12-18T19:00:38.414Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PingniteUI.csproj",
-              "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\PingniteUI.csproj",
-              "RelativeDocumentMoniker": "PingniteUI\\PingniteUI.csproj",
-              "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\PingniteUI.csproj",
-              "RelativeToolTip": "PingniteUI\\PingniteUI.csproj",
-              "ViewState": "AgIAABQAAAAAAAAAAAAAACEAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-16T20:41:24.615Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\App.xaml",
               "RelativeDocumentMoniker": "PingniteUI\\App.xaml",
@@ -93,10 +60,59 @@
               "RelativeDocumentMoniker": "PingniteUI\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\MainWindow.xaml.cs",
               "RelativeToolTip": "PingniteUI\\MainWindow.xaml.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAcwGcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAAA4wBABAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T20:09:16.433Z",
+              "WhenOpened": "2024-12-19T03:57:49.228Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Username.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\Username.xaml.cs",
+              "RelativeDocumentMoniker": "PingniteUI\\Username.xaml.cs",
+              "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\Username.xaml.cs",
+              "RelativeToolTip": "PingniteUI\\Username.xaml.cs",
+              "ViewState": "AgIAADUAAAAAAAAAAAAiwD0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T04:52:23.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Username.xaml",
+              "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\Username.xaml",
+              "RelativeDocumentMoniker": "PingniteUI\\Username.xaml",
+              "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\Username.xaml",
+              "RelativeToolTip": "PingniteUI\\Username.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-19T04:11:39.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Window1.g.cs",
+              "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs",
+              "RelativeDocumentMoniker": "PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs",
+              "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs",
+              "RelativeToolTip": "PingniteUI\\obj\\Debug\\net8.0-windows\\Window1.g.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAAADIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-19T04:01:04.146Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PingniteUI.csproj",
+              "DocumentMoniker": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\PingniteUI.csproj",
+              "RelativeDocumentMoniker": "PingniteUI\\PingniteUI.csproj",
+              "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\PingniteUI.csproj",
+              "RelativeToolTip": "PingniteUI\\PingniteUI.csproj",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-12-16T20:41:24.615Z"
             }
           ]
         }
@@ -106,12 +122,12 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "4e0267d0-89db-463a-aeb5-8d4466d7dd54",
+        "Id": "22c826f1-30c5-4abc-8daf-776d2478a28a",
         "Display": 0,
         "X": 32,
-        "Y": 69,
-        "Width": 974,
-        "Height": 663,
+        "Y": 68,
+        "Width": 975,
+        "Height": 509,
         "WindowState": 0
       },
       "DocumentGroups": [
@@ -128,7 +144,7 @@
               "ToolTip": "C:\\Users\\Juan\\Documents\\GitHub\\PingniteUI\\PingniteUI\\MainWindow.xaml*",
               "RelativeToolTip": "PingniteUI\\MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-18T03:51:13.75Z",
+              "WhenOpened": "2024-12-21T02:11:34.128Z",
               "EditorCaption": ""
             }
           ]

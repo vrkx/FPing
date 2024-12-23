@@ -15,16 +15,18 @@
 
         <SolidColorBrush x:Key="TransparentBorder" Color="#1b1d2b"/>
 
+
+
         <Style x:Key="TabItemS" TargetType="TabItem">
 
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Foreground" Value="Gray" />
             <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="Height" Value="35" />
+
             <Setter Property="FontWeight" Value="500" />
             <Setter Property="FontFamily" Value="Arial"></Setter>
             <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="Width" Value="150" />
+
             <Setter Property="Template">
 
                 <Setter.Value>
@@ -35,7 +37,7 @@
                         <Grid SnapsToDevicePixels="True" >
 
 
-                            <Border CornerRadius="5" Background="#66000000" BorderThickness="0" BorderBrush="Transparent" />
+                            <Border Name="BorderBTN" CornerRadius="5" Background="#66000000" BorderThickness="0" BorderBrush="Transparent" />
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" SnapsToDevicePixels="True" RecognizesAccessKey="True" ContentSource="Header" Focusable="False">
 
 
@@ -51,7 +53,7 @@
                                 <Setter Property="Background" Value="#FF333333"/>
 
                             </Trigger>
-                            
+
                             <Trigger Property="IsSelected" Value="True">
                                 <Trigger.EnterActions>
 
@@ -59,7 +61,10 @@
 
                                         <Storyboard>
 
-
+                                            <ColorAnimation Storyboard.TargetProperty="Background.Color"
+                To="White"
+                Duration="0:0:0.5"
+/>
                                             <ColorAnimation Storyboard.TargetProperty="Foreground.Color"
                                                             To="White"
                                                             Duration="0:0:0.5"
@@ -67,19 +72,19 @@
 
 
 
-                                        </Storyboard>    
-                                        
-                                        
-                                    </BeginStoryboard>   
-                                    
+                                        </Storyboard>
+
+
+                                    </BeginStoryboard>
+
                                 </Trigger.EnterActions>
                                 <Setter Property="FontFamily" Value="Arial Black"></Setter>
-                                
-                              
+
+
                                 <Setter Property="Background" Value="#FF615CFF"/>
 
                             </Trigger>
-                           
+
 
                         </ControlTemplate.Triggers>
 
@@ -110,14 +115,15 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="77*"/>
-                <ColumnDefinition Width="526*"/>
+                <ColumnDefinition Width="132*"/>
+                <ColumnDefinition Width="394*"/>
                 <ColumnDefinition Width="115*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="FTrack" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Foreground="White" FontSize="30" Margin="16,12,0,0" Grid.ColumnSpan="2"></Label>
+            <Label Content="FPing" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Foreground="White" FontSize="30" Margin="16,12,0,0" Grid.ColumnSpan="2"></Label>
 
-            <Border Margin="90,20,433,266" Background="White" Panel.ZIndex="2" Opacity="0.1" Grid.Column="1"/>
-            <Button Cursor="Hand" x:Name="Github" Margin="104,18,390,267" Background="Transparent" Click="Button_Click" Panel.ZIndex="2" Opacity="0.01" BorderThickness="0,0,0,0" Grid.Column="1">
+            <Border Margin="110,24,19,262" Background="White" Panel.ZIndex="2" Opacity="0.1" Grid.Column="1"/>
+            <Button Cursor="Hand" x:Name="Github" Margin="127,24,367,262" Background="Transparent" Click="Button_Click" Panel.ZIndex="2" Opacity="0.01" BorderThickness="0,0,0,0" Grid.Column="1" Grid.ColumnSpan="2">
                 <Button.Foreground>
                     <SolidColorBrush Color="Black" Opacity="0"/>
                 </Button.Foreground>
@@ -128,22 +134,22 @@
 
 
 
-            <Image Source="/Assets/Images/git.png" Height="32" Width="32" Margin="104,18,390,264" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312" Grid.Column="1"></Image>
+            <Image Source="/Assets/Images/git.png" Height="32" Width="32" Margin="127,22,367,260" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312" Grid.Column="1" Grid.ColumnSpan="2"></Image>
 
-            <Button Cursor="Hand" Click="Button_Click_1" Width="30" Height="30" RenderTransformOrigin="0.333,0.8" Margin="62,24,23,260" Opacity="0.01" Panel.ZIndex="2" Grid.Column="2">
+            <Button Cursor="Hand" Click="Button_Click_1" Width="30" Height="30" RenderTransformOrigin="0.333,0.8" Margin="62,24,23,260" Opacity="0.01" Panel.ZIndex="2" Grid.Column="3">
                 <Button.Background>
                     <SolidColorBrush Color="#FF202020" Opacity="0.01"/>
                 </Button.Background>
 
             </Button>
-            <Image Source="/Assets/Images/exit.png" Width="30" Height="30" Margin="62,25,23,259" Panel.ZIndex="1" Grid.Column="2"></Image>
+            <Image Source="/Assets/Images/exit.png" Width="30" Height="30" Margin="62,25,23,259" Panel.ZIndex="1" Grid.Column="3"></Image>
 
 
-            <TabControl Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Grid.ColumnSpan="3" Margin="0,79,10,0" Grid.RowSpan="2">
+            <TabControl Background="Transparent" BorderBrush="Transparent" BorderThickness="0" Grid.ColumnSpan="4" Margin="0,79,10,0" Grid.RowSpan="2">
 
 
 
-                <TabItem Header="Home" Style="{DynamicResource TabItemS}" Margin="16,8,-16,-8" Background="#7F000000">
+                <TabItem Height="35" Width="150" Name="HomeS" Header="Home" Style="{DynamicResource TabItemS}" Margin="16,8,-16,-8" Background="#000000">
 
                     <Grid >
                         <Grid.ColumnDefinitions>
@@ -152,14 +158,16 @@
                             <ColumnDefinition Width="66*"/>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="10.984"/>
-                            <ColumnDefinition Width="127*"/>
-                            <ColumnDefinition Width="344*"/>
+                            <ColumnDefinition Width="41*"/>
+                            <ColumnDefinition Width="85*"/>
+                            <ColumnDefinition Width="287*"/>
+                            <ColumnDefinition Width="57*"/>
                         </Grid.ColumnDefinitions>
-                        <Border x:Name="Servers" Margin="27,-29,33,402" CornerRadius="5" Background="#66000000" Grid.Column="2" Grid.ColumnSpan="5"/>
+                        <Border x:Name="Servers" Margin="27,-29,2,402" CornerRadius="5" Background="#66000000" Grid.Column="2" Grid.ColumnSpan="7"/>
 
 
                         <Image  Source="/Assets/Images/Home.png" Grid.Column="2" Margin="35,-30,11,402"/>
-                        <TextBlock Text="HOME" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="60,-23,0,0" RenderTransformOrigin="0.728,0.457" Grid.Column="2" Grid.ColumnSpan="4">
+                        <TextBlock Text="HOME" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="60,-23,0,0" RenderTransformOrigin="0.728,0.457" Grid.Column="2" Grid.ColumnSpan="5">
                             <TextBlock.Foreground>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="#FF0027FF"/>
@@ -168,8 +176,17 @@
                             </TextBlock.Foreground>
                         </TextBlock>
 
+                        <Image Name="Banner" Cursor="Arrow" VerticalAlignment="Top" HorizontalAlignment="Left" Height="164" Width="333" Source="https://raw.githubusercontent.com/vrkx/GlowStore/refs/heads/main/images/Banner.png" Grid.Column="2" MouseEnter="myImage_MouseEnter" 
+       MouseLeave="myImage_MouseLeave" Margin="27,33,0,0" Panel.ZIndex="2" Grid.ColumnSpan="6"/>
 
-                        <Image Cursor="Arrow" VerticalAlignment="Top" Height="190" Source="https://raw.githubusercontent.com/vrkx/GlowStore/refs/heads/main/images/Banner.png" Margin="58,84,29,0" Grid.Column="1" Grid.ColumnSpan="6"/>
+
+                        <Image Source="/Assets/Images/Jonesy.png" Grid.ColumnSpan="4" Margin="33,0,27,342" Grid.Column="2" Panel.ZIndex="4"/>
+                        <Border Background="#66000000" CornerRadius="5" Grid.Column="2" Margin="27,20,2,339" Grid.ColumnSpan="7"/>
+                        <TextBlock Name="WelcomeName"  Text="Hello," FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="10,33,0,0" RenderTransformOrigin="0.964,1.565" Grid.Column="5" Grid.ColumnSpan="4" Width="412"/>
+                        <Image Name="Dsc" Source="https://raw.githubusercontent.com/vrkx/GlowStore/refs/heads/main/images/Banner2.png" Margin="172,85,2,213" Grid.Column="7"  MouseEnter="dsc_MouseEnter" Width="170" Height="110"
+       MouseLeave="dsc_MouseLeave" Grid.ColumnSpan="2" />
+
+
 
 
                     </Grid>
@@ -177,20 +194,24 @@
                 </TabItem>
 
 
-                <TabItem Header="Servers" Style="{DynamicResource TabItemS}" Margin="-134,54,0,-54" HorizontalAlignment="Left" >
+                <TabItem Name="Serverss" Height="35" Width="150" Header="Servers" Style="{DynamicResource TabItemS}" Margin="-134,52,0,-51" HorizontalAlignment="Left" >
 
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="66*"/>
                             <ColumnDefinition Width="6*"/>
-                            <ColumnDefinition Width="159*"/>
-                            <ColumnDefinition Width="473*"/>
+                            <ColumnDefinition Width="49*"/>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="103*"/>
+                            <ColumnDefinition Width="324*"/>
+                            <ColumnDefinition Width="97*"/>
+                            <ColumnDefinition Width="52*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Name="SERVERS" CornerRadius="5" Margin="110,-29,33,402" Background="#66000000" Grid.Column="2" Grid.ColumnSpan="2" />
+                        <Border Name="SERVERS" CornerRadius="5" Margin="54,-29,33,402" Background="#66000000" Grid.Column="4" Grid.ColumnSpan="4" />
 
-                        <Image  Source="/Assets/Images/Web.png" Grid.Column="2" Margin="119,-29,19,402"/>
-                        <TextBlock Text="SERVERS" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="145,-23,0,0" Grid.Column="2" Grid.ColumnSpan="2">
+                        <Image  Source="/Assets/Images/Web.png" Grid.Column="4" Margin="63,-29,19,402"/>
+                        <TextBlock Text="SERVERS" FontSize="20"  VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="89,-23,0,0" Grid.Column="4" Grid.ColumnSpan="2">
                             <TextBlock.Foreground>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="#FF42FF00"/>
@@ -201,7 +222,7 @@
 
 
 
-                        <Grid Margin="98,11,21,311" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Grid Margin="42,11,21,311" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -218,7 +239,9 @@
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaSTATUS" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="421,9,0,0" Height="25"/>
                         </Grid>
 
-                        <Button Cursor="Hand" x:Name="Reload" Margin="388,-24,54,407" Background="Transparent" Click="Reload_Click" Panel.ZIndex="2" Opacity="0.01" BorderThickness="0,0,0,0" Grid.Column="3">
+                        <Border CornerRadius="5" Background="#66000000" Width="35" Height="35" Grid.Column="5" Margin="178,261,111,112"/>
+
+                        <Button Cursor="Hand" x:Name="Reload" Margin="178,261,110,112" Background="Transparent" Click="Reload_Click" Panel.ZIndex="5" Opacity="0.01" BorderThickness="0,0,0,0" Grid.Column="5">
                             <Button.Foreground>
                                 <SolidColorBrush Color="Black" Opacity="0"/>
                             </Button.Foreground>
@@ -227,8 +250,8 @@
                             </Button.BorderBrush>
                         </Button>
 
-                        <Image Source="/Assets/Images/reload.png" Margin="390,-20,54,411" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312" Grid.Column="3"/>
-                        <Grid Margin="98,45,21,277" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Image Source="/Assets/Images/reload.png" Margin="181,270,113,121" IsEnabled="False" Panel.ZIndex="1" RenderTransformOrigin="0.656,-0.312" Grid.Column="5"/>
+                        <Grid Margin="42,45,21,277" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -244,7 +267,7 @@
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaMS1" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="319,9,0,0" Height="26"/>
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaSTATUS1" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="421,9,0,0" Height="25"/>
                         </Grid>
-                        <Grid Margin="98,80,21,242" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Grid Margin="42,80,21,242" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -260,7 +283,7 @@
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaMS2" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="319,10,0,0" Height="26"/>
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaSTATUS2" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="421,9,0,0" Height="25"/>
                         </Grid>
-                        <Grid Margin="98,114,21,208" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Grid Margin="42,114,21,208" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -276,7 +299,7 @@
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaMS3" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="319,8,0,0" Height="26" RenderTransformOrigin="0.318,0.526"/>
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaSTATUS3" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="421,9,0,0" Height="25"/>
                         </Grid>
-                        <Grid Margin="98,150,21,172" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Grid Margin="42,150,21,172" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -292,7 +315,7 @@
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaMS4" Content="NaMS" Foreground="White"  Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="318,9,0,0" Height="26"/>
                             <Label VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15" x:Name="NaSTATUS4" Content="NaSTATUS" Foreground="White" Panel.ZIndex="2" FontFamily="Calibri" FontWeight="Bold" Margin="421,9,0,0" Height="25"/>
                         </Grid>
-                        <Grid Margin="98,186,21,136" Grid.ColumnSpan="2" Grid.Column="2">
+                        <Grid Margin="42,186,21,136" Grid.ColumnSpan="4" Grid.Column="4">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="91*"/>
                                 <RowDefinition Height="36*"/>
@@ -319,7 +342,7 @@
 
             </TabControl>
 
-            <Label x:Name="Version" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="Gray" Content="v0.1.0" Margin="0,40,0,0" RenderTransformOrigin="0.151,1.806"/>
+            <Label x:Name="Version"  VerticalAlignment="Top"  Foreground="Gray" Content="v1.0.0"  Margin="41,26,0,0" RenderTransformOrigin="0.151,1.806" Grid.Column="1" />
 
 
 

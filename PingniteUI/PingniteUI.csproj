@@ -13,6 +13,7 @@
     <None Remove="Assets\Images\exit.png" />
     <None Remove="Assets\Images\git.png" />
     <None Remove="Assets\Images\Home.png" />
+    <None Remove="Assets\Images\Jonesy.png" />
     <None Remove="Assets\Images\reload.png" />
     <None Remove="Assets\Images\Servers.png" />
     <None Remove="Assets\Images\Web.png" />
@@ -24,6 +25,7 @@
     <Resource Include="Assets\Images\exit.png" />
     <Resource Include="Assets\Images\git.png" />
     <Resource Include="Assets\Images\Home.png" />
+    <Resource Include="Assets\Images\Jonesy.png" />
     <Resource Include="Assets\Images\Logo.png" />
     <Resource Include="Assets\Images\reload.png" />
     <Resource Include="Assets\Images\Servers.png" />
@@ -32,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Assets\Info\" />
     <Folder Include="Assets\svg\" />
     <Folder Include="Assets\WPF\" />
   </ItemGroup>
