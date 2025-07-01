@@ -1,0 +1,201 @@
+import tkinter as tk
+from tkinter import filedialog, messagebox, ttk
+import subprocess
+import os
+import shutil
+import platform
+import psutil
+
+# Helper to run shell commands
+def run_command(cmd):
+    subprocess.run(cmd, shell=True)
+
+# DNS setting function with options
+def set_dns(choice):
+    dns_map = {
+        "Cloudflare (1.1.1.1)": ("1.1.1.1", "1.0.0.1"),
+        "Google (8.8.8.8)": ("8.8.8.8", "8.8.4.4"),
+        "OpenDNS (208.67.222.222)": ("208.67.222.222", "208.67.220.220")
+    }
+    if choice in dns_map:
+        primary, secondary = dns_map[choice]
+        run_command(f'netsh interface ip set dns name="Ethernet" static {primary}')
+        run_command(f'netsh interface ip add dns name="Ethernet" {secondary} index=2')
+        messagebox.showinfo("DNS", f"DNS set to {choice}!")
+
+# Ultimate Performance power plan
+def enable_performance_mode():
+    run_command('powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61')
+    run_command('powercfg /setactive e9a42b02-d5df-448d-aa00-03f14749eb61')
+    messagebox.showinfo("Power", "Ultimate Performance enabled!")
+
+# Registry tweaks to improve network latency & responsiveness
+def apply_registry_tweaks():
+    reg_data = r'''
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters]
+"TcpAckFrequency"=dword:00000001
+"TCPNoDelay"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:ffffffff
+"SystemResponsiveness"=dword:00000000
+
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseSpeed"="0"
+"MouseThreshold1"="0"
+"MouseThreshold2"="0"
+
+[HKEY_CURRENT_USER\Control Panel\Keyboard]
+"KeyboardDelay"="0"
+"KeyboardSpeed"="31"
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Power\PowerSettings\7516b95f-f776-4464-8c53-06167f40cc99\2a737441-1930-4402-8d77-b2bebba308a3]
+"Attributes"=dword:00000002
+    '''
+    with open("burgg_tweaks.reg", "w") as f:
+        f.write(reg_data)
+    run_command("reg import burgg_tweaks.reg")
+    os.remove("burgg_tweaks.reg")
+    messagebox.showinfo("Registry", "Registry tweaks applied!")
+
+# Enable Game Mode and Hardware Accelerated GPU Scheduling (HAGS)
+def enable_gaming_features():
+    run_command("powershell Set-ItemProperty -Path HKCU:\\Software\\Microsoft\\GameBar -Name AllowAutoGameMode -Value 1")
+    run_command("powershell Set-ItemProperty -Path HKLM:\\SYSTEM\\CurrentControlSet\\Control\\GraphicsDrivers -Name HwSchMode -Value 2 -Type DWord")
+    messagebox.showinfo("Gaming", "Game Mode & HAGS enabled!")
+
+# Disable fullscreen optimizations for a chosen game exe
+def disable_fullscreen_optimizations():
+    filepath = filedialog.askopenfilename(filetypes=[("Executable files", "*.exe")])
+    if filepath:
+        run_command(f'powershell -Command "Set-ItemProperty -Path \'HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers\' -Name \'{filepath}\' -Value \'DISABLEDXMAXIMIZEDWINDOWEDMODE DISABLETHEMES DISABLEDWM RUNASADMIN\'"')
+        messagebox.showinfo("Optimizations", f"Fullscreen Optimizations disabled for:\n{filepath}")
+
+# Clean temp/cache folders to free resources
+def clean_temp_cache():
+    temp_dirs = [
+        os.getenv('TEMP'),
+        os.getenv('TMP'),
+        r"C:\Windows\Temp",
+        os.path.expanduser("~\\AppData\\Local\\Temp")
+    ]
+    for path in temp_dirs:
+        for root_dir, dirs, files in os.walk(path):
+            for name in files:
+                try:
+                    os.remove(os.path.join(root_dir, name))
+                except:
+                    continue
+            for name in dirs:
+                try:
+                    shutil.rmtree(os.path.join(root_dir, name), ignore_errors=True)
+                except:
+                    continue
+    messagebox.showinfo("Cleaner", "Temporary files and cache cleaned!")
+
+# Disable startup apps that hog resources
+def disable_startup_apps():
+    run_command('powershell "Get-CimInstance Win32_StartupCommand | foreach {Disable-ScheduledTask -TaskName $_.Name -Confirm:$false}"')
+    messagebox.showinfo("Startup", "Startup apps disabled (where possible)!")
+
+# Set QoS network priority for gaming
+def network_priority():
+    run_command("powershell Set-NetQoSPolicy -Name 'GamingQoS' -AppPathNameMatchCondition '*' -DSCPValue 46 -PolicyStore ActiveStore")
+    messagebox.showinfo("Network", "QoS policy for gaming priority applied!")
+
+# Input latency optimizations
+def input_latency_tweaks():
+    # Disable USB selective suspend
+    run_command('powercfg -setacvalueindex SCHEME_CURRENT SUB_USB USBSELECTIVE SUSPEND 0')
+    run_command('powercfg -setdcvalueindex SCHEME_CURRENT SUB_USB USBSELECTIVE SUSPEND 0')
+
+    # Keyboard delay and repeat speed
+    run_command('reg add "HKCU\\Control Panel\\Keyboard" /v KeyboardDelay /t REG_SZ /d 0 /f')
+    run_command('reg add "HKCU\\Control Panel\\Keyboard" /v KeyboardSpeed /t REG_SZ /d 31 /f')
+
+    # Disable mouse acceleration
+    run_command('reg add "HKCU\\Control Panel\\Mouse" /v MouseSpeed /t REG_SZ /d 0 /f')
+    run_command('reg add "HKCU\\Control Panel\\Mouse" /v MouseThreshold1 /t REG_SZ /d 0 /f')
+    run_command('reg add "HKCU\\Control Panel\\Mouse" /v MouseThreshold2 /t REG_SZ /d 0 /f')
+
+    # Apply changes immediately
+    run_command('RUNDLL32.EXE user32.dll,UpdatePerUserSystemParameters')
+
+    messagebox.showinfo("Input Lag", "Input latency tweaks applied!")
+
+# Extreme mode applying all tweaks
+def godmode_boost():
+    dns_choice = dns_var.get()
+    set_dns(dns_choice)
+    enable_performance_mode()
+    apply_registry_tweaks()
+    enable_gaming_features()
+    clean_temp_cache()
+    disable_startup_apps()
+    network_priority()
+    input_latency_tweaks()
+    messagebox.showinfo("GodMode Boost", "All tweaks applied for max FPS and min ping!")
+
+# Ping test function for popular game servers
+def ping_test(host, display_widget):
+    try:
+        result = subprocess.run(['ping', host, '-n', '4'], capture_output=True, text=True, shell=True)
+        display_widget.insert(tk.END, f"\n{host}:\n{result.stdout}\n")
+        display_widget.see(tk.END)
+    except Exception:
+        display_widget.insert(tk.END, f"\n{host}: Unreachable\n")
+
+# Smart mode auto-detection (simplified)
+def smart_mode():
+    specs = f"""
+OS: {platform.system()} {platform.release()}
+CPU: {platform.processor()}
+RAM: {round(psutil.virtual_memory().total / (1024 ** 3))} GB
+Battery: {'Plugged in' if psutil.sensors_battery().power_plugged else 'On Battery'}
+"""
+    messagebox.showinfo("Smart Mode", f"System info detected:\n{specs}\nApplying recommended tweaks...")
+    godmode_boost()
+
+# --- GUI Setup ---
+
+root = tk.Tk()
+root.title("BURGG - Ultimate FPS & Ping Booster")
+root.geometry("520x770")
+root.configure(bg="#121212")
+
+tk.Label(root, text="⚡ BURGG - Ultimate FPS & Ping Booster", font=("Segoe UI", 18, "bold"), bg="#121212", fg="#00FF99").pack(pady=15)
+
+dns_var = tk.StringVar(value="Cloudflare (1.1.1.1)")
+tk.Label(root, text="Choose DNS:", bg="#121212", fg="white").pack()
+dns_menu = ttk.Combobox(root, textvariable=dns_var, values=[
+    "Cloudflare (1.1.1.1)",
+    "Google (8.8.8.8)",
+    "OpenDNS (208.67.222.222)"
+])
+dns_menu.pack(pady=5)
+
+tk.Button(root, text="Set DNS", command=lambda: set_dns(dns_var.get()), width=45).pack(pady=3)
+tk.Button(root, text="Enable Ultimate Performance", command=enable_performance_mode, width=45).pack(pady=3)
+tk.Button(root, text="Apply Registry Tweaks", command=apply_registry_tweaks, width=45).pack(pady=3)
+tk.Button(root, text="Enable Game Mode + HAGS", command=enable_gaming_features, width=45).pack(pady=3)
+tk.Button(root, text="Disable Fullscreen Optimizations", command=disable_fullscreen_optimizations, width=45).pack(pady=3)
+tk.Button(root, text="Clean Temp & Cache", command=clean_temp_cache, width=45).pack(pady=3)
+tk.Button(root, text="Disable Startup Apps", command=disable_startup_apps, width=45).pack(pady=3)
+tk.Button(root, text="Set Network QoS Priority", command=network_priority, width=45).pack(pady=3)
+tk.Button(root, text="Apply Input Latency Tweaks", command=input_latency_tweaks, width=45).pack(pady=3)
+tk.Button(root, text="🧠 Smart Mode (Auto Optimizer)", command=smart_mode, bg="#4444AA", fg="white", width=45).pack(pady=8)
+tk.Button(root, text="🔥 Activate GODMODE BOOST", command=godmode_boost, bg="#FF5555", fg="white", font=("Segoe UI", 12, "bold"), width=45).pack(pady=10)
+
+tk.Label(root, text="📡 Ping Tester (Popular Game Servers)", bg="#121212", fg="#00FF99").pack(pady=10)
+ping_text = tk.Text(root, height=9, width=65, bg="#1e1e1e", fg="white")
+ping_text.pack()
+
+tk.Button(root, text="Test Ping to Riot NA", command=lambda: ping_test("104.160.131.3", ping_text), width=40).pack(pady=2)
+tk.Button(root, text="Test Ping to Fortnite EU", command=lambda: ping_test("13.225.161.14", ping_text), width=40).pack(pady=2)
+tk.Button(root, text="Test Ping to Valorant EUW", command=lambda: ping_test("185.40.64.69", ping_text), width=40).pack(pady=2)
+
+tk.Label(root, text="🔄 Auto-run on boot: Coming soon...", bg="#121212", fg="#AAAAAA").pack(pady=20)
+
+root.mainloop()
